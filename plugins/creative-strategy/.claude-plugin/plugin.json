@@ -1,0 +1,9 @@
+{
+  "name": "creative-strategy",
+  "version": "0.3.2",
+  "description": "Free creative strategy skills for your AI agent. Starts with creative performance analysis: which ads earn spend, why, and what to make next.",
+  "author": {
+    "name": "Gold Tetsola"
+  },
+  "license": "MIT"
+}

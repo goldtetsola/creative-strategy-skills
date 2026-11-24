@@ -1,0 +1,46 @@
+{
+  "skill": "creative-performance-analysis",
+  "required": [
+    {
+      "path": "references/evidence-rules.md"
+    },
+    {
+      "path": "references/inspecting-ads.md"
+    },
+    {
+      "path": "references/video-capture.md"
+    },
+    {
+      "path": "references/ccs.md"
+    },
+    {
+      "path": "references/additional-lenses.md"
+    },
+    {
+      "path": "references/growthcraft.md"
+    },
+    {
+      "path": "references/mindstates.md",
+      "from": "## The four-part model",
+      "to": "### Heuristics at a decision point"
+    },
+    {
+      "path": "references/hook-quality.md"
+    },
+    {
+      "path": "references/similarity.md"
+    },
+    {
+      "path": "references/reading-the-appeal.md"
+    },
+    {
+      "path": "references/gain-and-loss-framing.md"
+    },
+    {
+      "path": "references/mature-market-response-chooser.md"
+    },
+    {
+      "path": "references/voice.md"
+    }
+  ]
+}

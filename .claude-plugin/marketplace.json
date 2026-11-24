@@ -1,0 +1,15 @@
+{
+  "name": "goldtetsola",
+  "owner": {
+    "name": "Gold Tetsola"
+  },
+  "description": "Free skills for creative strategy.",
+  "plugins": [
+    {
+      "name": "creative-strategy",
+      "source": "./plugins/creative-strategy",
+      "description": "Free creative strategy skills for your AI agent. Starts with creative performance analysis: which ads earn spend, why, and what to make next.",
+      "version": "0.3.2"
+    }
+  ]
+}

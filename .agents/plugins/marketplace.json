@@ -1,0 +1,23 @@
+{
+  "name": "goldtetsola",
+  "interface": {
+    "displayName": "Gold Tetsola"
+  },
+  "plugins": [
+    {
+      "name": "creative-strategy",
+      "source": {
+        "source": "local",
+        "path": "./plugins/creative-strategy"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL",
+        "products": [
+          "CODEX"
+        ]
+      },
+      "category": "Productivity"
+    }
+  ]
+}
