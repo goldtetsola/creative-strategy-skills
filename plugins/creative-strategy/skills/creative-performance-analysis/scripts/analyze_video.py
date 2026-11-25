@@ -36,7 +36,7 @@ from types import SimpleNamespace
 SCRIPT_DIR = Path(__file__).resolve().parent
 DEFAULT_PROMPT_PATH = SCRIPT_DIR / "prompts" / "full.md"
 QUICK_PROMPT_PATH = SCRIPT_DIR / "prompts" / "quick.md"
-DEFAULT_MODEL = "gemini-2.5-flash"
+DEFAULT_MODEL = "gemini-flash-latest"
 sys.path.insert(0, str(SCRIPT_DIR))
 import media_capture
 sys.path.pop(0)
@@ -141,6 +141,8 @@ def gemini_error(error: Exception) -> SystemExit:
         if error.code in (400, 401, 403) and ("API key" in message or "API_KEY" in json.dumps(detail)):
             return SystemExit(f"GEMINI_KEY_REJECTED: Gemini rejected your API key. Paste a fresh key from {KEY_URL} "
                               f"into {ENV_FILE}, save the file, then run this again.")
+        if error.code == 503:
+            return SystemExit("GEMINI_BUSY: Gemini is busy right now. Try again in a few minutes.")
         return SystemExit(f"Gemini request failed ({error.code}): {message or error.reason}")
     reason = getattr(error, "reason", error)
     if "CERTIFICATE_VERIFY_FAILED" in str(reason):

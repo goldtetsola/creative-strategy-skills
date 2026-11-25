@@ -22,7 +22,7 @@ Read the whole full capture before relying on it: timeline, audio, on-screen tex
 
 A capture uploads the video to Google's Gemini with the user's key, costs one API call per video, and leaves a Markdown capture beside the video. The script tries to delete the upload afterwards but cannot guarantee it. Before the first upload, tell the user which videos you'd send and how many, and get their yes. Reuse existing captures first. If they decline, explain only what inspected images and existing captures allow, and say which videos stay unexplained.
 
-The script needs only Python 3.11 or later; there is nothing to install. Just run it. It finds the user's key itself, in `GEMINI_API_KEY` or `~/.config/creative-strategy/.env`. When it stops with `NEEDS_GEMINI_KEY` or `GEMINI_KEY_REJECTED`, it has already created that file and opened it in the user's text editor. Tell them in two short sentences: get a free key at https://aistudio.google.com/apikey, paste it after `GEMINI_API_KEY=` in the file that just opened, save, and reply "done". Then run the capture again. If the editor did not open, give them the file's path instead. Never ask for the key in chat, and never open, print or edit the key file. If they paste a key into chat anyway, don't repeat it; ask them to put it in the file. While you wait, carry on with the work that doesn't need the video.
+The script needs only Python 3.11 or later; there is nothing to install. Just run it. It finds the user's key itself, in `GEMINI_API_KEY` or `~/.config/creative-strategy/.env`. When it stops with `NEEDS_GEMINI_KEY` or `GEMINI_KEY_REJECTED`, it has already created that file and opened it in the user's text editor. Tell them in two short sentences: get a free key at https://aistudio.google.com/apikey, paste it after `GEMINI_API_KEY=` in the file that just opened, save, and reply "done". Then run the capture again. If the editor did not open, give them the file's path instead. Never ask for the key in chat, and never open, print or edit the key file. If they paste a key into chat anyway, don't repeat it; ask them to put it in the file. While you wait, carry on with the work that doesn't need the video. When it stops with `GEMINI_BUSY`, tell the user Gemini is busy and to try again in a few minutes, and carry on with the evidence that doesn't need the video.
 
 ```bash
 python3 scripts/analyze_video.py "<video-path>" --mode detailed
@@ -33,7 +33,7 @@ Run from this skill's folder, or give the script's absolute path. `--setup` chec
 
 - Optional second positional argument: exact output file.
 - Default output: `<video-dir>/Analyses/<video-filename>.<mode>.md`, keeping the input extension. `ad.mp4` becomes `ad.mp4.quick.md` or `ad.mp4.detailed.md`.
-- `--model <id>` overrides the default, `gemini-2.5-flash`.
+- `--model <id>` overrides the default, `gemini-flash-latest`, which Google keeps pointed at its current Flash model.
 - `--refresh` captures again despite a reviewed match, when a known coverage limit calls for it.
 
 Blank or abnormal responses fail without replacing a previous capture. Non-empty text and a normal finish do not prove factual accuracy or full coverage; read the result before relying on it. Do not bypass a provider refusal. Report unavailable evidence and continue independent captures. Invent no strategy or causal conclusion to fill a missing transcript.
